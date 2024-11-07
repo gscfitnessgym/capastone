@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GSC Fitness Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .dashboard-text {
+            background-color: #fff;
+            border-radius: 9px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 12px;
+            width: 320px;
+            margin: 0 auto;
+        }
+
+        .dashboard-text ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .dashboard-text li {
+            margin: 20px 0;
+        }
+
+        .dashboard-text li a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 0.80rem;
+            transition: color 0.3s ease;
+        }
+
+        .dashboard-text li a:hover {
+            color: #0056b3;
+        }
+
+        .dashboard-text nav {
+            display: inline-block;
+            margin-top: 11px;
+            
+        }
+
+        label {
+            font-size: 0rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    {% block content %}
+    <label>
+
+    <h1>Welcome to Your Dashboard, {{ request.user.first_name }}!</h1>
+    <div class="dashboard-text">
+    <ul >
+
+       
+
+        <li><a href="{% url 'predict' %}"> Predict Burnt Calories</a></li>
+        <li><a href="{% url 'predict' %}"> Membership</a></li>
+        <li><a href="{%  url 'predict'  %}">Records</a></li>
+        <li><a href="{%  url 'password_change_form'  %}"> Change Password</a></li>
+        <li><a href="{%  url 'Home'  %}"> View Site</a></li>
+
+        <li> <nav><a href="{%  url 'handlelogout'  %}"> Logout</a></li>  </nav>
+
+        
+
+
+
+
+        
+    </ul>
+</div>
+    </label>
+    
+    
+   
+
+    
+
+    
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+    
+    {% block extra_js %}{% endblock %}
+
+   
+</body>
+</html>
